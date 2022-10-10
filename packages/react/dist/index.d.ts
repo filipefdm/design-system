@@ -28,13 +28,13 @@ declare const Button: _stitches_react_types_styled_component.StyledComponent<"bu
         md: string;
         lg: string;
         xl: string;
-        "2xl": string;
-        "4xl": string;
-        "5xl": string;
-        "6xl": string;
-        "7xl": string;
-        "8xl": string;
-        "9xl": string;
+        '2xl': string;
+        '4xl': string;
+        '5xl': string;
+        '6xl': string;
+        '7xl': string;
+        '8xl': string;
+        '9xl': string;
     };
     fontWeights: {
         regular: string;
