@@ -1,9 +1,12 @@
 import * as _stitches_react_types_styled_component from '@stitches/react/types/styled-component';
 import * as _stitches_react_types_css_util from '@stitches/react/types/css-util';
 import * as react from 'react';
-import { ComponentProps, ElementType } from 'react';
+import { ComponentProps as ComponentProps$1, ElementType, ReactNode } from 'react';
 import * as Avatar$1 from '@radix-ui/react-avatar';
 import * as Checkbox$1 from '@radix-ui/react-checkbox';
+import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import { ComponentProps as ComponentProps$2 } from '@stitches/react';
+import * as ToastPrimitive from '@radix-ui/react-toast';
 
 declare const Box: _stitches_react_types_styled_component.StyledComponent<"div", {}, {}, _stitches_react_types_css_util.CSS<{}, {
     colors: {
@@ -207,7 +210,7 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
     transition: "transitions";
     zIndex: "zIndices";
 }, {}>>;
-interface BoxProps extends ComponentProps<typeof Box> {
+interface BoxProps extends ComponentProps$1<typeof Box> {
     as?: ElementType;
 }
 
@@ -415,7 +418,7 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"p", 
     transition: "transitions";
     zIndex: "zIndices";
 }, {}>>;
-interface TextProps extends ComponentProps<typeof Text> {
+interface TextProps extends ComponentProps$1<typeof Text> {
     as?: ElementType;
 }
 
@@ -623,7 +626,7 @@ declare const Heading: _stitches_react_types_styled_component.StyledComponent<"h
     transition: "transitions";
     zIndex: "zIndices";
 }, {}>>;
-interface HeadingProps extends ComponentProps<typeof Heading> {
+interface HeadingProps extends ComponentProps$1<typeof Heading> {
     as?: ElementType;
 }
 
@@ -830,7 +833,7 @@ declare const AvatarImage: _stitches_react_types_styled_component.StyledComponen
     zIndex: "zIndices";
 }, {}>>;
 
-interface AvatarProps extends ComponentProps<typeof AvatarImage> {
+interface AvatarProps extends ComponentProps$1<typeof AvatarImage> {
 }
 declare function Avatar(props: AvatarProps): JSX.Element;
 declare namespace Avatar {
@@ -1042,7 +1045,7 @@ declare const Button: _stitches_react_types_styled_component.StyledComponent<"bu
     transition: "transitions";
     zIndex: "zIndices";
 }, {}>>;
-interface ButtonProps extends ComponentProps<typeof Button> {
+interface ButtonProps extends ComponentProps$1<typeof Button> {
     as?: ElementType;
 }
 
@@ -1249,7 +1252,7 @@ declare const Input: _stitches_react_types_styled_component.StyledComponent<"inp
     zIndex: "zIndices";
 }, {}>>;
 
-interface TextInputProps extends ComponentProps<typeof Input> {
+interface TextInputProps extends ComponentProps$1<typeof Input> {
     prefix?: string;
 }
 declare function TextInput({ prefix, ...props }: TextInputProps): JSX.Element;
@@ -1459,7 +1462,7 @@ declare const TextArea: _stitches_react_types_styled_component.StyledComponent<"
     transition: "transitions";
     zIndex: "zIndices";
 }, {}>>;
-interface TextAreaProps extends ComponentProps<typeof TextArea> {
+interface TextAreaProps extends ComponentProps$1<typeof TextArea> {
 }
 
 declare const CheckboxContainer: _stitches_react_types_styled_component.StyledComponent<react.ForwardRefExoticComponent<Checkbox$1.CheckboxProps & react.RefAttributes<HTMLButtonElement>>, {}, {}, _stitches_react_types_css_util.CSS<{}, {
@@ -1665,7 +1668,7 @@ declare const CheckboxContainer: _stitches_react_types_styled_component.StyledCo
     zIndex: "zIndices";
 }, {}>>;
 
-interface CheckboxProps extends ComponentProps<typeof CheckboxContainer> {
+interface CheckboxProps extends ComponentProps$1<typeof CheckboxContainer> {
 }
 declare function Checkbox(props: CheckboxProps): JSX.Element;
 declare namespace Checkbox {
@@ -1681,4 +1684,25 @@ declare namespace MultiStep {
     var displayName: string;
 }
 
-export { Avatar, AvatarProps, Box, BoxProps, Button, ButtonProps, Checkbox, CheckboxProps, Heading, HeadingProps, MultiStep, MultiStepProps, Text, TextArea, TextAreaProps, TextInput, TextInputProps, TextProps };
+declare type ComponentProps<T> = ComponentProps$2<T> & {
+    as: ElementType;
+};
+
+declare type TooltipProps = ComponentProps<typeof TooltipPrimitive.Root> & {
+    content: string | ReactNode;
+};
+declare function Tooltip({ content, children, ...props }: TooltipProps): JSX.Element;
+declare namespace Tooltip {
+    var displayName: string;
+}
+
+declare type ToastProps = ComponentProps<typeof ToastPrimitive.Root> & {
+    title: string;
+    description?: string;
+};
+declare function Toast({ title, description, ...props }: ToastProps): JSX.Element;
+declare namespace Toast {
+    var displayName: string;
+}
+
+export { Avatar, AvatarProps, Box, BoxProps, Button, ButtonProps, Checkbox, CheckboxProps, Heading, HeadingProps, MultiStep, MultiStepProps, Text, TextArea, TextAreaProps, TextInput, TextInputProps, TextProps, Toast, ToastProps, Tooltip, TooltipProps };
